@@ -3,4 +3,6 @@ kind: ConfigMap
 metadata:
   name: mock-ba
 data:
+  mock-acd-messageRate: '10'
+  mode: prod
   something: '["X-Remote-Extra-"]'
