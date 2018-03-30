@@ -19,4 +19,5 @@ Publishes transcript to Rabbit queue named _transcript_.
 Subscribes to Rabbit queue named _transcript_, and receives the transcripts from mock-ae.
 Does nothing with the transcripts.
 
-## RabbitMq
+## rabbit-mock-ba
+This is RabbitMQ.
