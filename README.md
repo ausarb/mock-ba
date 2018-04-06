@@ -1,6 +1,8 @@
 # mock-ba
 Consists of the following components.
-![alt text][diagram]
+
+![image][diagram]
+
 [diagram]: images/diagram.png "Diagram"
 
 ## mock-acd
