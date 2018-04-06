@@ -1,5 +1,7 @@
 # mock-ba
 Consists of the following components.
+![alt text][diagram]
+[diagram]: images/diagram.png "Diagram"
 
 ## mock-acd
 Generates fake call event messages and publishes to a Rabbit exchange named _cti_.
@@ -24,32 +26,46 @@ This is RabbitMQ.
 
 ## Deployment
 Go to a root directory.
-```
-> cd c:/Users/matr00659/development/github/kubernetes
-```
-
 Pull all the source repositories from github.
 ```
-git clone https://
+> cd c:/Users/matr00659/development/github/kubernetes
+> git clone https://github.com/Mattersight/mock-ba.git
+> git clone https://github.com/Mattersight/rabbit-mock-ba.git
+> git clone https://github.com/Mattersight/mock-acd.git
+> git clone https://github.com/Mattersight/mock-ti.git
+> git clone https://github.com/Mattersight/mock-ae.git
+> git clone https://github.com/Mattersight/mock-bi.git
 ```
 
-### Diagram
-![image](images/diagram.png "Diagram")
-
-Reference-style:
-![alt text][diagram]
-
-[diagram]: images/diagram.png "Diagram"
-
-## Installation
-Install this on a kubernetes cluster.
+Each repo has kubernetes files in a _\_k8s_ folder.
+Apply all these file to a target kubernetes cluster.
 First apply the files in mock-ba/_k8s
 ```
-> kubectl apply -f namespace.yml
-> kubectl -n mock-ba apply -f role.yml
-> kubectl -n mock-ba apply -f serviceaccount.yml
-> kubectl -n mock-ba apply -f clusterorlebinding.yml
-> kubectl -n mock-ba apply -f configmap.yml
-> kubectl -n mock-ba apply -f secret.yml
+> kubectl apply -f mock-ba/_k8s/namespace.yml
+> kubectl -n mock-ba apply -f mock-ba/_k8s/role.yml
+> kubectl -n mock-ba apply -f mock-ba/_k8s/serviceaccount.yml
+> kubectl -n mock-ba apply -f mock-ba/_k8s/clusterorlebinding.yml
+> kubectl -n mock-ba apply -f mock-ba/_k8s/configmap.yml
+> kubectl -n mock-ba apply -f mock-ba/_k8s/secret.yml
 ```
 Then install the mock ba components.
+```
+> kubectl -n mock-ba apply -f rabbit_mock-ba/_k8s/service.yml
+> kubectl -n mock-ba apply -f rabbit_mock-ba/_k8s/deployment.yml
+```
+```
+> kubectl -n mock-ba apply -f mock-acd/_k8s/service.yml
+> kubectl -n mock-ba apply -f mock-acd/_k8s/deployment.yml
+```
+```
+> kubectl -n mock-ba apply -f mock-ti/_k8s/service.yml
+> kubectl -n mock-ba apply -f mock-ti/_k8s/deployment.yml
+```
+```
+> kubectl -n mock-ba apply -f mock-ae/_k8s/service.yml
+> kubectl -n mock-ba apply -f mock-ae/_k8s/deployment.yml
+```
+```
+> kubectl -n mock-ba apply -f mock-bi/_k8s/service.yml
+> kubectl -n mock-ba apply -f mock-bi/_k8s/deployment.yml
+```
