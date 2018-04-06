@@ -21,3 +21,35 @@ Does nothing with the transcripts.
 
 ## rabbit-mock-ba
 This is RabbitMQ.
+
+## Deployment
+Go to a root directory.
+```
+> cd c:/Users/matr00659/development/github/kubernetes
+```
+
+Pull all the source repositories from github.
+```
+git clone https://
+```
+
+### Diagram
+![image](images/diagram.png "Diagram")
+
+Reference-style:
+![alt text][diagram]
+
+[diagram]: images/diagram.png "Diagram"
+
+## Installation
+Install this on a kubernetes cluster.
+First apply the files in mock-ba/_k8s
+```
+> kubectl apply -f namespace.yml
+> kubectl -n mock-ba apply -f role.yml
+> kubectl -n mock-ba apply -f serviceaccount.yml
+> kubectl -n mock-ba apply -f clusterorlebinding.yml
+> kubectl -n mock-ba apply -f configmap.yml
+> kubectl -n mock-ba apply -f secret.yml
+```
+Then install the mock ba components.
