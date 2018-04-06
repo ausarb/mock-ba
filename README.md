@@ -46,14 +46,15 @@ First apply the files in mock-ba/_k8s
 > kubectl apply -f mock-ba/_k8s/namespace.yml
 > kubectl -n mock-ba apply -f mock-ba/_k8s/role.yml
 > kubectl -n mock-ba apply -f mock-ba/_k8s/serviceaccount.yml
-> kubectl -n mock-ba apply -f mock-ba/_k8s/clusterorlebinding.yml
+> kubectl -n mock-ba apply -f mock-ba/_k8s/clusterrolebinding.yml
 > kubectl -n mock-ba apply -f mock-ba/_k8s/configmap.yml
 > kubectl -n mock-ba apply -f mock-ba/_k8s/secret.yml
 ```
 Then install the mock ba components.
 ```
-> kubectl -n mock-ba apply -f rabbit_mock-ba/_k8s/service.yml
-> kubectl -n mock-ba apply -f rabbit_mock-ba/_k8s/deployment.yml
+> kubectl -n mock-ba apply -f rabbit-mock-ba/_k8s/service.yml
+> kubectl -n mock-ba apply -f rabbit-mock-ba/_k8s/deployment.yml
+> kubectl -n mock-ba apply -f rabbit-mock-ba/_k8s/ingress.yml
 ```
 ```
 > kubectl -n mock-ba apply -f mock-acd/_k8s/service.yml
