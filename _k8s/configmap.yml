@@ -3,6 +3,7 @@ kind: ConfigMap
 metadata:
   name: mock-ba
 data:
-  mock-acd-messageRate: '100'
+  rabbit-amqp: 'rabbit-amqp.mock-ba.svc.cluster.local:80'
+  mock-acd-messageRate: '10'
   mode: prod
   something: '["X-Remote-Extra-"]'
