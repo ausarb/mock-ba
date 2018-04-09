@@ -25,8 +25,35 @@ Does nothing with the transcripts.
 
 ## rabbit-mock-ba
 This is RabbitMQ.
+This YAML creates an Ingress, hence there is a dependency on an Ingress Controller.
+Ingress Controller is typically considered "infrastructure".
+Only one is needed per cluster.
+This has already been set up in our AWS kubernetes cluster.
 
-## Deployment
+## Setting up the Ingress Controller
+Our AWS kubernetes cluster already has an Ingress Controller, so don't do this there.
+However, on your minikube (or some other cluster you own/control) you will want to do this.
+
+Go to your development root directory.
+Pull the mock-ba-ingress-controller source repository from github.
+```
+> cd c:/Users/matr00659/development/github/kubernetes
+> git clone https://github.com/Mattersight/mock-ba-ingress-controller.git
+```
+
+Apply all these file to your minikube cluster.
+```
+> kubectl apply -f mock-ba-ingress-controller/_k8s/namespace.yaml
+> kubectl apply -f mock-ba/_k8s/default-backend.yaml
+> kubectl apply -f mock-ba/_k8s/configmapyaml
+> kubectl apply -f mock-ba/_k8s/tcp-services-configmap.yaml
+> kubectl apply -f mock-ba/_k8s/udp-services-configmap.yaml
+```
+
+Note that these kubectl commands don't specify a namespace.
+This is because the YAML files specify the namespace.
+
+## Deployment of the mock-ba components
 Go to a root directory.
 Pull all the source repositories from github.
 ```
