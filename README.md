@@ -44,10 +44,8 @@ Pull the mock-ba-ingress-controller source repository from github.
 Apply all these file to your minikube cluster.
 ```
 > kubectl apply -f mock-ba-ingress-controller/_k8s/namespace.yaml
-> kubectl apply -f mock-ba/_k8s/default-backend.yaml
-> kubectl apply -f mock-ba/_k8s/configmapyaml
-> kubectl apply -f mock-ba/_k8s/tcp-services-configmap.yaml
-> kubectl apply -f mock-ba/_k8s/udp-services-configmap.yaml
+> kubectl apply -f mock-ba-ingress-controller/_k8s/without-rbac.yaml
+> kubectl apply -f mock-ba-ingress-controller/_k8s/service-nodeport.yaml
 ```
 
 Note that these kubectl commands don't specify a namespace.
@@ -71,6 +69,11 @@ Apply all these file to a target kubernetes cluster.
 First apply the files in mock-ba/_k8s
 ```
 > kubectl apply -f mock-ba/_k8s/namespace.yml
+> kubectl apply -f mock-ba/_k8s/default-backend.yaml
+> kubectl apply -f mock-ba/_k8s/configmap.yaml
+> kubectl apply -f mock-ba/_k8s/tcp-services-configmap.yaml
+> kubectl apply -f mock-ba/_k8s/udp-services-configmap.yaml
+>  
 > kubectl -n mock-ba apply -f mock-ba/_k8s/role.yml
 > kubectl -n mock-ba apply -f mock-ba/_k8s/serviceaccount.yml
 > kubectl -n mock-ba apply -f mock-ba/_k8s/clusterrolebinding.yml
