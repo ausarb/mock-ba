@@ -43,6 +43,7 @@ Apply all these file to your minikube cluster.
 > kubectl apply -f mock-ba-ingress-controller/_k8s/namespace.yaml  
 > kubectl apply -f mock-ba-ingress-controller/_k8s/without-rbac.yaml  
 > kubectl apply -f mock-ba-ingress-controller/_k8s/service-nodeport.yaml  
+> kubectl apply -f mock-ba-ingress-controller/_k8s/default-backend.yaml 
 
 Note that these kubectl commands don't specify a namespace.
 This is because the YAML files specify the namespace.
@@ -62,7 +63,6 @@ Each repo has kubernetes files in a _\_k8s_ folder.
 Apply all these file to a target kubernetes cluster.
 First apply the files in mock-ba/_k8s
 > kubectl apply -f mock-ba/_k8s/namespace.yml  
-> kubectl apply -f mock-ba/_k8s/default-backend.yaml  
 > kubectl apply -f mock-ba/_k8s/configmap.yaml  
 > kubectl apply -f mock-ba/_k8s/tcp-services-configmap.yaml  
 > kubectl apply -f mock-ba/_k8s/udp-services-configmap.yaml  
