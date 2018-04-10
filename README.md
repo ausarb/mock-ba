@@ -36,17 +36,13 @@ However, on your minikube (or some other cluster you own/control) you will want 
 
 Go to your development root directory.
 Pull the mock-ba-ingress-controller source repository from github.
-```
-> cd %USERPROFILE%/development/github/kubernetes
+> cd %USERPROFILE%/development/github/kubernetes  
 > git clone https://github.com/Mattersight/mock-ba-ingress-controller.git
-```
 
 Apply all these file to your minikube cluster.
-```
-> kubectl apply -f mock-ba-ingress-controller/_k8s/namespace.yaml
-> kubectl apply -f mock-ba-ingress-controller/_k8s/without-rbac.yaml
-> kubectl apply -f mock-ba-ingress-controller/_k8s/service-nodeport.yaml
-```
+> kubectl apply -f mock-ba-ingress-controller/_k8s/namespace.yaml  
+> kubectl apply -f mock-ba-ingress-controller/_k8s/without-rbac.yaml  
+> kubectl apply -f mock-ba-ingress-controller/_k8s/service-nodeport.yaml  
 
 Note that these kubectl commands don't specify a namespace.
 This is because the YAML files specify the namespace.
@@ -54,51 +50,42 @@ This is because the YAML files specify the namespace.
 ## Deployment of the mock-ba components
 Go to a root directory.
 Pull all the source repositories from github.
-```
-> cd %USERPROFILE%/development/github/kubernetes
-> git clone https://github.com/Mattersight/mock-ba.git
-> git clone https://github.com/Mattersight/rabbit-mock-ba.git
-> git clone https://github.com/Mattersight/mock-acd.git
-> git clone https://github.com/Mattersight/mock-ti.git
-> git clone https://github.com/Mattersight/mock-ae.git
-> git clone https://github.com/Mattersight/mock-bi.git
-```
+> cd %USERPROFILE%/development/github/kubernetes  
+> git clone https://github.com/Mattersight/mock-ba.git  
+> git clone https://github.com/Mattersight/rabbit-mock-ba.git  
+> git clone https://github.com/Mattersight/mock-acd.git  
+> git clone https://github.com/Mattersight/mock-ti.git  
+> git clone https://github.com/Mattersight/mock-ae.git  
+> git clone https://github.com/Mattersight/mock-bi.git  
 
 Each repo has kubernetes files in a _\_k8s_ folder.
 Apply all these file to a target kubernetes cluster.
 First apply the files in mock-ba/_k8s
-```
-> kubectl apply -f mock-ba/_k8s/namespace.yml
-> kubectl apply -f mock-ba/_k8s/default-backend.yaml
-> kubectl apply -f mock-ba/_k8s/configmap.yaml
-> kubectl apply -f mock-ba/_k8s/tcp-services-configmap.yaml
-> kubectl apply -f mock-ba/_k8s/udp-services-configmap.yaml
->  
-> kubectl -n mock-ba apply -f mock-ba/_k8s/role.yml
-> kubectl -n mock-ba apply -f mock-ba/_k8s/serviceaccount.yml
-> kubectl -n mock-ba apply -f mock-ba/_k8s/clusterrolebinding.yml
-> kubectl -n mock-ba apply -f mock-ba/_k8s/configmap.yml
-> kubectl -n mock-ba apply -f mock-ba/_k8s/secret.yml
-```
+> kubectl apply -f mock-ba/_k8s/namespace.yml  
+> kubectl apply -f mock-ba/_k8s/default-backend.yaml  
+> kubectl apply -f mock-ba/_k8s/configmap.yaml  
+> kubectl apply -f mock-ba/_k8s/tcp-services-configmap.yaml  
+> kubectl apply -f mock-ba/_k8s/udp-services-configmap.yaml  
+>    
+> kubectl -n mock-ba apply -f mock-ba/_k8s/role.yml  
+> kubectl -n mock-ba apply -f mock-ba/_k8s/serviceaccount.yml  
+> kubectl -n mock-ba apply -f mock-ba/_k8s/clusterrolebinding.yml  
+> kubectl -n mock-ba apply -f mock-ba/_k8s/configmap.yml  
+> kubectl -n mock-ba apply -f mock-ba/_k8s/secret.yml  
+
 Then install the mock ba components.
-```
-> kubectl -n mock-ba apply -f rabbit-mock-ba/_k8s/service.yml
-> kubectl -n mock-ba apply -f rabbit-mock-ba/_k8s/deployment.yml
-> kubectl -n mock-ba apply -f rabbit-mock-ba/_k8s/ingress.yml
-```
-```
-> kubectl -n mock-ba apply -f mock-acd/_k8s/service.yml
-> kubectl -n mock-ba apply -f mock-acd/_k8s/deployment.yml
-```
-```
-> kubectl -n mock-ba apply -f mock-ti/_k8s/service.yml
-> kubectl -n mock-ba apply -f mock-ti/_k8s/deployment.yml
-```
-```
-> kubectl -n mock-ba apply -f mock-ae/_k8s/service.yml
-> kubectl -n mock-ba apply -f mock-ae/_k8s/deployment.yml
-```
-```
-> kubectl -n mock-ba apply -f mock-bi/_k8s/service.yml
-> kubectl -n mock-ba apply -f mock-bi/_k8s/deployment.yml
-```
+> kubectl -n mock-ba apply -f rabbit-mock-ba/_k8s/service.yml  
+> kubectl -n mock-ba apply -f rabbit-mock-ba/_k8s/deployment.yml  
+> kubectl -n mock-ba apply -f rabbit-mock-ba/_k8s/ingress.yml  
+>      
+> kubectl -n mock-ba apply -f mock-acd/_k8s/service.yml  
+> kubectl -n mock-ba apply -f mock-acd/_k8s/deployment.yml  
+>   
+> kubectl -n mock-ba apply -f mock-ti/_k8s/service.yml  
+> kubectl -n mock-ba apply -f mock-ti/_k8s/deployment.yml  
+>    
+> kubectl -n mock-ba apply -f mock-ae/_k8s/service.yml  
+> kubectl -n mock-ba apply -f mock-ae/_k8s/deployment.yml  
+>    
+> kubectl -n mock-ba apply -f mock-bi/_k8s/service.yml  
+> kubectl -n mock-ba apply -f mock-bi/_k8s/deployment.yml  
