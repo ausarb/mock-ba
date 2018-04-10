@@ -37,7 +37,7 @@ However, on your minikube (or some other cluster you own/control) you will want 
 Go to your development root directory.
 Pull the mock-ba-ingress-controller source repository from github.
 ```
-> cd c:/Users/matr00659/development/github/kubernetes
+> cd %USERPROFILE%/development/github/kubernetes
 > git clone https://github.com/Mattersight/mock-ba-ingress-controller.git
 ```
 
@@ -55,7 +55,7 @@ This is because the YAML files specify the namespace.
 Go to a root directory.
 Pull all the source repositories from github.
 ```
-> cd c:/Users/matr00659/development/github/kubernetes
+> cd %USERPROFILE%/development/github/kubernetes
 > git clone https://github.com/Mattersight/mock-ba.git
 > git clone https://github.com/Mattersight/rabbit-mock-ba.git
 > git clone https://github.com/Mattersight/mock-acd.git
