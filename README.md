@@ -65,7 +65,7 @@ Each repo has kubernetes files in a _\_k8s_ folder.
 Apply all these file to a target kubernetes cluster.
 First apply the files in mock-ba/_k8s
 > kubectl apply -f mock-ba/_k8s/namespace.yml  
-> kubectl apply -f mock-ba/_k8s/configmap.yaml  
+> kubectl apply -f mock-ba/_k8s/configmap.yml  
 >    
 > kubectl -n mock-ba apply -f mock-ba/_k8s/role.yml  
 > kubectl -n mock-ba apply -f mock-ba/_k8s/serviceaccount.yml  
